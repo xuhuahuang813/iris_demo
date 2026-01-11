@@ -1,0 +1,56 @@
+column1,column2,correlation
+Record Type,Registration Class,1
+Record Type,State,0.0293016
+Record Type,County,0.0268975
+Record Type,Body Type,0.97476
+Record Type,Fuel Type,0.658661
+Record Type,Reg Valid Date,0.203483
+Record Type,Color,0.392751
+Record Type,Scofflaw Indicator,1.6349e-05
+Record Type,Suspension Indicator,0.000786181
+Record Type,Revocation Indicator,0.000372088
+Registration Class,State,0.019809
+Registration Class,County,0.0146748
+Registration Class,Body Type,0.297571
+Registration Class,Fuel Type,0.347756
+Registration Class,Reg Valid Date,0.0990284
+Registration Class,Color,0.049497
+Registration Class,Scofflaw Indicator,6.69871e-05
+Registration Class,Suspension Indicator,0.00393445
+Registration Class,Revocation Indicator,0.325306
+State,County,0.0304603
+State,Body Type,0.00712785
+State,Fuel Type,0.0131431
+State,Reg Valid Date,0.0971773
+State,Color,0.00761421
+State,Scofflaw Indicator,3.3889e-06
+State,Suspension Indicator,0.0103029
+State,Revocation Indicator,0.00191748
+County,Body Type,0.00864112
+County,Fuel Type,0.0140892
+County,Reg Valid Date,0.0608401
+County,Color,0.00717679
+County,Scofflaw Indicator,0.00238348
+County,Suspension Indicator,0.0040217
+County,Revocation Indicator,0.0166616
+Body Type,Fuel Type,0.36217
+Body Type,Reg Valid Date,0.140829
+Body Type,Color,0.0568651
+Body Type,Scofflaw Indicator,0.000129678
+Body Type,Suspension Indicator,0.0039719
+Body Type,Revocation Indicator,0.0026001
+Fuel Type,Reg Valid Date,0.182833
+Fuel Type,Color,0.050968
+Fuel Type,Scofflaw Indicator,1.97003e-05
+Fuel Type,Suspension Indicator,0.000532366
+Fuel Type,Revocation Indicator,0.000448362
+Reg Valid Date,Color,0.0639733
+Reg Valid Date,Scofflaw Indicator,0.0456194
+Reg Valid Date,Suspension Indicator,0.0530888
+Reg Valid Date,Revocation Indicator,0.030148
+Color,Scofflaw Indicator,0.000205266
+Color,Suspension Indicator,0.00924614
+Color,Revocation Indicator,0.0050388
+Scofflaw Indicator,Suspension Indicator,0.002228
+Scofflaw Indicator,Revocation Indicator,8.00426e-07
+Suspension Indicator,Revocation Indicator,3.84905e-05

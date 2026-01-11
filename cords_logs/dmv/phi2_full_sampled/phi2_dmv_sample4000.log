@@ -1,0 +1,25 @@
+[φ²] Output file: ./cords_results/dmv/phi2_full_sampled/phi2_dmv_sample4000.txt
+[φ²] Total elapsed time: 17.6029 sec
+	Command being timed: "./cords_phi2_full_sampled ./dataset_public/DMV/dmv_withhead_11cols.csv --sample 4000 --out ./cords_results/dmv/phi2_full_sampled/phi2_dmv_sample4000.txt"
+	User time (seconds): 17.44
+	System time (seconds): 0.12
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:17.60
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 4644
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 3955
+	Voluntary context switches: 1
+	Involuntary context switches: 9
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 16
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

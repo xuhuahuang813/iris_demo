@@ -1,0 +1,56 @@
+column1,column2,correlation
+Record Type,Registration Class,1
+Record Type,State,0.0429446
+Record Type,County,0.0918085
+Record Type,Body Type,0.97626
+Record Type,Fuel Type,0.629337
+Record Type,Reg Valid Date,0.503508
+Record Type,Color,0.363736
+Record Type,Scofflaw Indicator,0
+Record Type,Suspension Indicator,0.000667657
+Record Type,Revocation Indicator,0.000332151
+Registration Class,State,0.0777202
+Registration Class,County,0.0768214
+Registration Class,Body Type,0.45781
+Registration Class,Fuel Type,0.516263
+Registration Class,Reg Valid Date,0.433009
+Registration Class,Color,0.0979686
+Registration Class,Scofflaw Indicator,0
+Registration Class,Suspension Indicator,0.14936
+Registration Class,Revocation Indicator,0.309045
+State,County,0.111984
+State,Body Type,0.072032
+State,Fuel Type,0.0271445
+State,Reg Valid Date,0.485622
+State,Color,0.0133641
+State,Scofflaw Indicator,0
+State,Suspension Indicator,0.0487358
+State,Revocation Indicator,0.0317507
+County,Body Type,0.0760056
+County,Fuel Type,0.108361
+County,Reg Valid Date,0.474354
+County,Color,0.0758569
+County,Scofflaw Indicator,0
+County,Suspension Indicator,0.0345358
+County,Revocation Indicator,0.0432115
+Body Type,Fuel Type,0.530102
+Body Type,Reg Valid Date,0.530723
+Body Type,Color,0.109471
+Body Type,Scofflaw Indicator,0
+Body Type,Suspension Indicator,0.0832956
+Body Type,Revocation Indicator,0.00204252
+Fuel Type,Reg Valid Date,0.52076
+Fuel Type,Color,0.112156
+Fuel Type,Scofflaw Indicator,0
+Fuel Type,Suspension Indicator,0.000931712
+Fuel Type,Revocation Indicator,0.000484881
+Reg Valid Date,Color,0.493527
+Reg Valid Date,Scofflaw Indicator,0
+Reg Valid Date,Suspension Indicator,0.439394
+Reg Valid Date,Revocation Indicator,0.530988
+Color,Scofflaw Indicator,0
+Color,Suspension Indicator,0.00972218
+Color,Revocation Indicator,0.0118344
+Scofflaw Indicator,Suspension Indicator,0
+Scofflaw Indicator,Revocation Indicator,0
+Suspension Indicator,Revocation Indicator,5.07588e-05
