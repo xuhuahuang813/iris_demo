@@ -1,0 +1,35 @@
+(base) qswang@node-49-52-27-35:~/iris_demo$ g++ -O2 -std=c++17 cords_phi2.cpp -o cords_phi2
+(base) qswang@node-49-52-27-35:~/iris_demo$ ./cords_phi2 ./dataset_public/DMV/dmv_withhead_11cols.csv --sample 8000
+[CORDS] Output file: correlation_dmv_withhead_11cols_n8000_d50_mcv100_sk0.90.txt
+[CORDS] Total elapsed time: 15.9562 seconds
+(base) qswang@node-49-52-27-35:~/iris_demo$ ./cords_phi2 ./dataset_public/Census/census.csv --sample 8000
+[CORDS] Output file: correlation_census_n8000_d50_mcv100_sk0.90.txt
+[CORDS] Total elapsed time: 0.15195 seconds
+(base) qswang@node-49-52-27-35:~/iris_demo$ ./cords_phi2 ./dataset_public/Census/census.csv --sample 48842
+[CORDS] Output file: correlation_census_n48842_d50_mcv100_sk0.90.txt
+[CORDS] Total elapsed time: 0.498674 seconds
+(base) qswang@node-49-52-27-35:~/iris_demo$ ./cords_phi2 ./dataset_public/Census/census.csv --sample 48842
+[CORDS] Output file: correlation_census_n48842_d50_mcv100_sk0.90.txt
+[CORDS] Total elapsed time: 0.500063 seconds
+(base) qswang@node-49-52-27-35:~/iris_demo$ wc -l ./dataset_public/DMV/dmv_withhead_11cols.csv
+11591878 ./dataset_public/DMV/dmv_withhead_11cols.csv
+(base) qswang@node-49-52-27-35:~/iris_demo$ ./cords_phi2 ./dataset_public/DMV/dmv_withhead_11cols.csv --sample 11591877
+[CORDS] Output file: correlation_dmv_withhead_11cols_n11591877_d50_mcv100_sk0.90.txt
+[CORDS] Total elapsed time: 98.4911 seconds
+(base) qswang@node-49-52-27-35:~/iris_demo$ head -n 5 /home/qswang/iris_demo/dataset_public/Instacart/order_wide_clean.csv
+product_name,eval_set,order_number,order_dow,order_hour_of_day,days_since_prior_order,add_to_cart_order,reordered,aisle,department
+AtaulfoMango,prior,3,0,20,23,1,0,freshfruits,produce
+OrganicGreenOnions,prior,3,0,20,23,3,1,freshvegetables,produce
+OrganicRedBellPepper,prior,3,0,20,23,4,1,freshvegetables,produce
+OrganicBellPepper,prior,3,0,20,23,5,0,freshvegetables,produce
+(base) qswang@node-49-52-27-35:~/iris_demo$ ./cords_phi2 ./dataset_public/Instacart/order_wide_clean.csv --sample 8000
+[CORDS] Output file: correlation_order_wide_clean_n8000_d50_mcv100_sk0.90.txt
+[CORDS] Total elapsed time: 46.7292 seconds
+(base) qswang@node-49-52-27-35:~/iris_demo$ wc -l ./dataset_public/Instacart/order_wide_clean.csv
+33819107 ./dataset_public/Instacart/order_wide_clean.csv
+(base) qswang@node-49-52-27-35:~/iris_demo$ ./cords_phi2 ./dataset_public/Instacart/order_wide_clean.csv --sample 33819106
+[CORDS] Output file: correlation_order_wide_clean_n33819106_d50_mcv100_sk0.90.txt
+[CORDS] Total elapsed time: 329.784 seconds
+(base) qswang@node-49-52-27-35:~/iris_demo$ ./cords_phi2 ./dataset_public/DMV/dmv_withhead_11cols.csv --sample 4000
+[CORDS] Output file: correlation_dmv_withhead_11cols_n4000_d50_mcv100_sk0.90.txt
+[CORDS] Total elapsed time: 16.0093 seconds

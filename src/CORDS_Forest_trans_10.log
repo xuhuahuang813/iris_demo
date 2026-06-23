@@ -1,0 +1,58 @@
+10
+Elevation	1978	AVI
+Aspect	361	AVI
+Slope	67	AVI
+Horizontal_Distance_To_Hydrology	551	AVI
+Vertical_Distance_To_Hydrology	700	AVI
+Horizontal_Distance_To_Roadways	5785	AVI
+Hillshade_9am	207	AVI
+Hillshade_Noon	185	AVI
+Hillshade_3pm	255	AVI
+Horizontal_Distance_To_Fire_Points	5827	AVI
+45
+Hillshade_9am	Hillshade_3pm	17413	0.124688	-	207	255
+Slope	Hillshade_Noon	3242	0.0909017	-	67	185
+Aspect	Hillshade_3pm	21846	0.0857204	-	361	255
+Aspect	Hillshade_9am	19092	0.0776787	-	361	207
+Slope	Hillshade_9am	4334	0.0702271	-	67	207
+Slope	Hillshade_3pm	6093	0.0654492	-	67	255
+Aspect	Hillshade_Noon	18985	0.0607364	-	361	185
+Hillshade_Noon	Hillshade_3pm	17596	0.0377536	-	185	255
+Horizontal_Distance_To_Hydrology	Vertical_Distance_To_Hydrology	66824	0.0234087	-	551	700
+Elevation	Horizontal_Distance_To_Roadways	504832	0.011425	-	1978	5785
+Hillshade_9am	Hillshade_Noon	15988	0.00983514	-	207	185
+Elevation	Slope	52452	0.00819359	-	1978	67
+Elevation	Horizontal_Distance_To_Fire_Points	492613	0.00708312	-	1978	5827
+Elevation	Hillshade_Noon	105231	0.00659356	-	1978	185
+Elevation	Hillshade_9am	129440	0.00637803	-	1978	207
+Elevation	Hillshade_3pm	173569	0.00423484	-	1978	255
+Horizontal_Distance_To_Roadways	Horizontal_Distance_To_Fire_Points	535066	0.00406096	-	5785	5827
+Elevation	Horizontal_Distance_To_Hydrology	156707	0.00388799	-	1978	551
+Slope	Vertical_Distance_To_Hydrology	16951	0.00277837	-	67	700
+Slope	Horizontal_Distance_To_Fire_Points	110096	0.00242388	-	67	5827
+Slope	Horizontal_Distance_To_Roadways	125867	0.00218101	-	67	5785
+Slope	Horizontal_Distance_To_Hydrology	13765	0.00217404	-	67	551
+Horizontal_Distance_To_Roadways	Hillshade_Noon	223050	0.00207719	-	5785	185
+Aspect	Slope	13407	0.00183472	-	361	67
+Hillshade_3pm	Horizontal_Distance_To_Fire_Points	287028	0.00167551	-	255	5827
+Vertical_Distance_To_Hydrology	Hillshade_9am	44916	0.00167237	-	700	207
+Elevation	Vertical_Distance_To_Hydrology	161102	0.00161466	-	1978	700
+Aspect	Horizontal_Distance_To_Roadways	417873	0.00161325	-	361	5785
+Elevation	Aspect	270725	0.00153821	-	1978	361
+Vertical_Distance_To_Hydrology	Hillshade_3pm	61691	0.00136549	-	700	255
+Horizontal_Distance_To_Roadways	Hillshade_3pm	322556	0.00126962	-	5785	255
+Hillshade_9am	Horizontal_Distance_To_Fire_Points	228296	0.00125779	-	207	5827
+Horizontal_Distance_To_Hydrology	Horizontal_Distance_To_Roadways	285143	0.00120634	-	551	5785
+Vertical_Distance_To_Hydrology	Hillshade_Noon	36016	0.00106603	-	700	185
+Hillshade_Noon	Horizontal_Distance_To_Fire_Points	196728	0.00102611	-	185	5827
+Aspect	Horizontal_Distance_To_Fire_Points	388646	0.000965172	AVI	361	5827
+Horizontal_Distance_To_Roadways	Hillshade_9am	262798	0.000920833	AVI	5785	207
+Horizontal_Distance_To_Hydrology	Hillshade_3pm	49401	0.000919925	AVI	551	255
+Horizontal_Distance_To_Hydrology	Hillshade_9am	36154	0.000906315	AVI	551	207
+Horizontal_Distance_To_Hydrology	Hillshade_Noon	28651	0.000740511	AVI	551	185
+Aspect	Vertical_Distance_To_Hydrology	92830	0.000633247	AVI	361	700
+Vertical_Distance_To_Hydrology	Horizontal_Distance_To_Roadways	326872	0.000513681	AVI	700	5785
+Aspect	Horizontal_Distance_To_Hydrology	78957	0.000402429	AVI	361	551
+Vertical_Distance_To_Hydrology	Horizontal_Distance_To_Fire_Points	297980	0.000397121	AVI	700	5827
+Horizontal_Distance_To_Hydrology	Horizontal_Distance_To_Fire_Points	259984	0.000379952	AVI	551	5827
+0

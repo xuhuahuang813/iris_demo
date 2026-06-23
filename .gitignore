@@ -1,0 +1,8 @@
+*.tmp
+dataset_public/
+covtype*
+archive.zip
+cords_logs/
+cords_results/
+results/
+tmp_cords/

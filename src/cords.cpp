@@ -33,18 +33,20 @@ void cords2d(vector<vector<string>> tab, vector<choice>& ch, int n_rows, map<int
 		}
 
         //conservative - more sparse depending on storage budget
-        if(dvs.size() <= 64)
-        {
-            ch[t] = choice(vector<int>{i, j}, dvs.size(), "Sparse", 1, vector<int>{sdi, sdj});
-            continue;
-        }
+//        hxh 注释掉Sparse类别。改为，无论是否稀疏，都计算phi
+//        if(dvs.size() <= 64)
+//        {
+//            ch[t] = choice(vector<int>{i, j}, dvs.size(), "Sparse", 1, vector<int>{sdi, sdj});
+//            continue;
+//        }
 
+//        hxh 注释掉Hist类别。改为，无论是否域值空间相差过大，都计算phi
 		bool ishist = (max(sdi/sdj, sdj/sdi) >= 128);
-        if(ishist)
-        {
-            ch[t] = choice(vector<int>{i, j}, dvs.size(), "Hist", 0, vector<int>{sdi, sdj});
-            continue;
-        }
+//        if(ishist)
+//        {
+//            ch[t] = choice(vector<int>{i, j}, dvs.size(), "Hist", 0, vector<int>{sdi, sdj});
+//            continue;
+//        }
 
 		ch[t] = choice(vector<int>{i, j}, dvs.size(), "-", phi, vector<int>{sdi, sdj});
 
@@ -75,8 +77,8 @@ void cords2d(vector<vector<string>> tab, vector<choice>& ch, int n_rows, map<int
 			pj = ptmp;
 			dtmp.push_back(dj[dj.size() - 1]);
 			dj = vector<string>(dtmp);
-			
-			//di.erase(unique(di.begin(), di.end()), di.end());			
+
+			//di.erase(unique(di.begin(), di.end()), di.end());
 			//dj.erase(unique(dj.begin(), dj.end()), dj.end());
 		}
 
@@ -101,7 +103,8 @@ void cords2d(vector<vector<string>> tab, vector<choice>& ch, int n_rows, map<int
 		if (phi < 0.001)
 		{
             ch[t].ch = "AVI";
-            ch[t].corr = -1;
+//          hxh 注释掉ch[t].corr = -1;
+//            ch[t].corr = -1;
 		}
 	}
 }
@@ -117,7 +120,7 @@ void CORDS(string ifnm, string ofnm, string scols)
 		vector<string> ln;
 		istringstream ss(line);
 		int id = 0;
-		while (getline(ss, v, '|'))
+		while (getline(ss, v, ','))
 			ln.push_back(v);
 		tab.push_back(ln);
 	}
@@ -125,7 +128,7 @@ void CORDS(string ifnm, string ofnm, string scols)
 	istringstream ss(scols);
 	int id = 0;
 	while (getline(ss, v, ','))
-		cols.push_back(stoi(v));
+		cols.push_back(stoi(v)); //stoi()将字符串直接转为整型
 
 	vector<choice> ch;
 	for (int i = 0; i < cols.size(); i++)
@@ -135,9 +138,13 @@ void CORDS(string ifnm, string ofnm, string scols)
 			ch.push_back(choice(vector<int>{cols[i], cols[j]}));
 		}
 	}
-	map<int, map<string, float>> p;
-	map<int, vector<string>> d;
+	map<int, map<string, float>> p; // p[c][value] = 该列 c 中某 value 的出现频率
+	map<int, vector<string>> d; // d[c] = 该列 c 的所有离散取值
 	int n_rows = tab.size();
+    if (n_rows == 0) {
+        cerr << "Error: No data read from input file " << ifnm << endl;
+        return; // 或者直接退出整个程序
+    }
 	int n_cols = tab[0].size();
 
 	for (int t = 0; t < cols.size(); t++)
@@ -183,12 +190,112 @@ void CORDS(string ifnm, string ofnm, string scols)
 	ofs.close();
 }
 
+void transOutput(const string& ifnm,
+                 const string& ofnm,
+                 const vector<string>& trueColNames)
+{
+    ifstream in(ifnm.c_str());
+    ofstream out(ofnm.c_str());
+
+    if (!in.is_open()) {
+        cerr << "Error opening input file: " << ifnm << endl;
+        return;
+    }
+    if (!out.is_open()) {
+        cerr << "Error opening output file: " << ofnm << endl;
+        return;
+    }
+
+    string line;
+    while (getline(in, line)) {
+        // 使用 \t 拆分
+        vector<string> tokens;
+        {
+            // 用 stringstream 按照 \t 分隔行
+            stringstream ss(line);
+            string tmp;
+            while (getline(ss, tmp, '\t')) {
+                tokens.push_back(tmp);
+            }
+        }
+
+        // 根据不同大小进行替换
+        if (tokens.size() == 3) {
+            // 替换第一个字符串
+            // 假设 tokens[0] 能转换成整数，用 stoi 解析
+            // 并在 trueColNames 中取对应下标
+            try {
+                int index = stoi(tokens[0]);
+                if (index >= 0 && index < (int)trueColNames.size()) {
+                    tokens[0] = trueColNames[index];
+                } else {
+                    cerr << "Index out of range in trueColNames: " << index << endl;
+                }
+            } catch (...) {
+                cerr << "Failed to convert \"" << tokens[0] << "\" to int." << endl;
+            }
+        }
+        else if (tokens.size() == 7) {
+            // 替换前两个字符串
+            // 假设 tokens[0], tokens[1] 都能转换成整数
+            try {
+                int index0 = stoi(tokens[0]);
+                if (index0 >= 0 && index0 < (int)trueColNames.size()) {
+                    tokens[0] = trueColNames[index0];
+                } else {
+                    cerr << "Index out of range in trueColNames: " << index0 << endl;
+                }
+
+                int index1 = stoi(tokens[1]);
+                if (index1 >= 0 && index1 < (int)trueColNames.size()) {
+                    tokens[1] = trueColNames[index1];
+                } else {
+                    cerr << "Index out of range in trueColNames: " << index1 << endl;
+                }
+            } catch (...) {
+                cerr << "Failed to convert one of \""
+                     << tokens[0] << "\" or \""
+                     << tokens[1] << "\" to int." << endl;
+            }
+        }
+
+        // 将处理后的结果写入输出文件
+        for (size_t i = 0; i < tokens.size(); ++i) {
+            if (i > 0) out << "\t"; // 用 \t 作为分隔
+            out << tokens[i];
+        }
+        out << "\n";
+    }
+
+    in.close();
+    out.close();
+}
+
 int main()
 {
-	string ifnm = "/iris/dataset_public/DMV/sample";
-	string ofnm = "CORDS.log";
-	string cols = "0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19";
+    //  Census
+//	string ifnm = "/home/qswang/iris_demo/dataset_public/Census/census";
+//	string ofnm = "CORDS_Census_computeAll.log";
+//    string transOfnm = "CORDS_Census_trans_computeAll.log";
+//	string cols = "0,1,2,3,4,5,6,7,8,9,10,11,12,13";
+//    vector<string> trueColNames = {"0","1","3","4","5","6","7","8","9","10","11","12","13","14"};
 
-	CORDS(ifnm, ofnm, cols);
+    //  DMV
+//    string ifnm = "/home/qswang/iris_demo/dataset_public/DMV/dmv_nohead_11cols.csv";
+//    string ofnm = "CORDS_DMV.log";
+//    string transOfnm = "CORDS_DMV_trans.log";
+//    string cols = "0,1,2,3,4,5,6,7,8,9,10";
+//    vector<string> trueColNames = {"0","2","4","6","9","10","14","16","17","18","19"};
+
+    //  Forest
+    string ifnm = "/home/qswang/iris_demo/covtype_nohead.csv";
+    string ofnm = "CORDS_Forest_10.log";
+    string transOfnm = "CORDS_Forest_trans_10.log";
+//    string cols = "0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54";
+//    vector<string> trueColNames = {"Elevation","Aspect","Slope","Horizontal_Distance_To_Hydrology","Vertical_Distance_To_Hydrology","Horizontal_Distance_To_Roadways","Hillshade_9am","Hillshade_Noon","Hillshade_3pm","Horizontal_Distance_To_Fire_Points","Wilderness_Area1","Wilderness_Area2","Wilderness_Area3","Wilderness_Area4","Soil_Type1","Soil_Type2","Soil_Type3","Soil_Type4","Soil_Type5","Soil_Type6","Soil_Type7","Soil_Type8","Soil_Type9","Soil_Type10","Soil_Type11","Soil_Type12","Soil_Type13","Soil_Type14","Soil_Type15","Soil_Type16","Soil_Type17","Soil_Type18","Soil_Type19","Soil_Type20","Soil_Type21","Soil_Type22","Soil_Type23","Soil_Type24","Soil_Type25","Soil_Type26","Soil_Type27","Soil_Type28","Soil_Type29","Soil_Type30","Soil_Type31","Soil_Type32","Soil_Type33","Soil_Type34","Soil_Type35","Soil_Type36","Soil_Type37","Soil_Type38","Soil_Type39","Soil_Type40","Cover_Type"};
+    string cols = "0,1,2,3,4,5,6,7,8,9";
+    vector<string> trueColNames = {"Elevation","Aspect","Slope","Horizontal_Distance_To_Hydrology","Vertical_Distance_To_Hydrology","Horizontal_Distance_To_Roadways","Hillshade_9am","Hillshade_Noon","Hillshade_3pm","Horizontal_Distance_To_Fire_Points"};
+    CORDS(ifnm, ofnm, cols);
+    transOutput(ofnm, transOfnm, trueColNames);
 }
 
